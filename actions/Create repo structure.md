@@ -30,7 +30,8 @@ README.md
 
 All packages and utilites will be stored under `pkgs` with the project name as the directory name. Each with its own default.nix derivation file.
 
-The flake will be relatively simple. It should import from the most recent version of nixpkgs. It should use the `builtins.readDir` for auto pkgs discovery.
-Then using this list of packages automatically call the list of packages and export it as your "packages" output.
+The flake will be relatively simple, it should be a basic flake, but  It should use the `builtins.readDir` for auto pkgs discovery. Then using this list of packages automatically call the packages and export it as your "packages" output.
+
+It should import from the most recent version of nixpkgs. 
 
 inputs.EXT-FLAKE.inputs.nixpkgs.follows is a nixpkgs feature, not something you need to implement in your flake, so no work is needed there.
