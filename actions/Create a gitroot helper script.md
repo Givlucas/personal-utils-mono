@@ -1,7 +1,7 @@
 #action
-#document
+#published
 
-# notesa
+# notes
 
 ## Refrences
 https://nixos.org/manual/nixpkgs/unstable/#trivial-builder-writeShellApplication
