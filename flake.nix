@@ -13,9 +13,9 @@
 
     pkgs-list = builtins.readDir ./pkgs;
 
-    packages.${system} = builtins.mapAttrs (name: value: {
-      ${name} = pkgs.callPackage "./pkgs/${name}";      
-    }) pkgs-list;
+    packages.${system} = builtins.mapAttrs (name: value:
+      pkgs.callPackage ./pkgs/${name} {}
+    ) pkgs-list;
 
     devShells.${system}.default = pkgs.mkShell {
       packages = [
