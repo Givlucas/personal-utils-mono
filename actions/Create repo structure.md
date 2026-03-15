@@ -1,5 +1,5 @@
 #action
-#design
+#implimentation
 
 # Note
 - can use a flake, then each project gets to create a default.nix. This is imported into a named output in the main flake in the root
@@ -8,11 +8,11 @@
 Create the basic structure of the flakes and directories for the repo.
 
 # Statement of specifications
-- [x] Must be able to auto-discover new packages in the repo
-- [x] Must provide a devshell
-- [x] Must be pure nix
-- [x] Must follow standard nixos conventions
-- [x] Have nixpkgs "follows" option
+- [ ] Must be able to auto-discover new packages in the repo
+- [ ] Must provide a devshell
+- [ ] Must be pure nix
+- [ ] Must follow standard nixos conventions
+- [ ] Have nixpkgs "follows" option
 
 # Statement of design
 Following idiomatic nix and the nixpkgs repo, this repo will have the following structure
