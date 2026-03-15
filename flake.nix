@@ -21,9 +21,7 @@
       packages = [
         pkgs.cargo
       ];
-    };
-    
-    # packages.x86_64-linux.hello = nixpkgs.legacyPackages.x86_64-linux.hello;
+    };   
     
   };
 }
