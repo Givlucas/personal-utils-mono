@@ -3,25 +3,28 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11";
+
+    flake-utils.url = "github:numtide/flake-utils";
+
   };
 
-  outputs = { self, nixpkgs }:
-  let
-    system = "x86_64-linux";
-    pkgs = nixpkgs.legacyPackages.${system};
-  in rec {
+  outputs = { self, nixpkgs, flake-utils }:
+    flake-utils.lib.eachDefaultSystem (system: 
+      let
+        pkgs = nixpkgs.legacyPackages.${system};
+      in rec {
 
-    pkgs-list = builtins.readDir ./pkgs;
+        pkgs-list = builtins.readDir ./pkgs;
 
-    packages.${system} = builtins.mapAttrs (name: value:
-      pkgs.callPackage ./pkgs/${name} {}
-    ) pkgs-list;
+        packages = builtins.mapAttrs (name: value:
+          pkgs.callPackage ./pkgs/${name} {}
+        ) pkgs-list;
 
-    devShells.${system}.default = pkgs.mkShell {
-      packages = [
-        pkgs.cargo
-      ];
-    };   
-    
-  };
+        devShells.default = pkgs.mkShell {
+          packages = [
+            pkgs.cargo
+          ];
+        };
+      }
+  );      
 }
