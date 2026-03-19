@@ -13,6 +13,7 @@ Create the basic structure of the flakes and directories for the repo.
 - [x] Must be pure nix
 - [x] Must follow standard nixos conventions
 - [x] Have nixpkgs "follows" option
+- [x] Must build for all nix systems
 
 # Statement of design
 Following idiomatic nix and the nixpkgs repo, this repo will have the following structure
@@ -35,3 +36,5 @@ The flake will be relatively simple, it should be a basic flake, but  It should 
 It should import from the most recent version of nixpkgs. 
 
 inputs.EXT-FLAKE.inputs.nixpkgs.follows is a nixpkgs feature, not something you need to implement in your flake, so no work is needed there.
+
+entire flake output should be built for all systems using flake utils helper function
