@@ -9,6 +9,13 @@ writeShellApplication, mkpasswd, ...
     ];
 
     text = ''
-      mkpasswd -m sha-256 $1 > /persist/secrets/$2-password
+      set -e
+
+      file_path="/persist/secrets/$2-password"
+      
+      password=$(mkpasswd -m sha-512 "$1")
+
+      echo "$password" > "$file_path"
+
     '';
 }
