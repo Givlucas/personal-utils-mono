@@ -1,5 +1,5 @@
 #action
-#discovery
+#published
 
 # Note
 
